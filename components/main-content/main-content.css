@@ -10,9 +10,9 @@
     width: 100%;
     max-width: var(--screen-lg);
 }
-/* 
-@media only screen and (max-width: 48rem) {
+
+@media only screen and (max-width: 40rem) {
     .center-content {
         padding: 0;
     }
-} */
+}

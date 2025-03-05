@@ -32,7 +32,7 @@
     grid-row-gap: 0;
 }
 
-.navbar-container > p {
+.navbar-container > a {
     text-align: center;
 }
 

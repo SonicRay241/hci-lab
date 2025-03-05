@@ -1,0 +1,41 @@
+@import url("../../../assets/css/main.css");
+
+.new-arrivals {
+    padding-top: 8rem;
+}
+
+.titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.left-chevron > svg {
+    transform: translateX(-0.0625rem);
+}
+.right-chevron > svg {
+    transform: translateX(0.0625rem);
+}
+
+@media only screen and (max-width: 48rem) {
+    .new-arrivals {
+        padding-top: 4rem;
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .new-arrivals {
+        padding: 2rem;
+        padding-bottom: 0;
+        /* padding-right: 2rem; */
+    }
+}

@@ -10,7 +10,7 @@ class Navbar extends HTMLElement {
                         <a>COLLECTIONS</a>
                         <a>ABOUT</a>
                     </div>
-                    <p class="title-font">Christian Wijaya</p>
+                    <a href="/pages/home.html" class="title-font">Christian Wijaya</a>
                     <div class="link-container nav-right">
                         <a>EVENT</a>
                         <a>CART</a>
@@ -34,13 +34,13 @@ class Navbar extends HTMLElement {
     //     }
     // };
 
-    // connectedCallback() { // similar to componentDidMount()
-    //     window.addEventListener("scroll", this.handleScroll);
-    // }
+    connectedCallback() { // similar to componentDidMount()
+        // window.addEventListener("scroll", this.handleScroll);
+    }
 
-    // disconnectedCallback() { // similar to componentWillUnmount()
-    //     window.removeEventListener("scroll", this.handleScroll);
-    // }
+    disconnectedCallback() { // similar to componentWillUnmount()
+        // window.removeEventListener("scroll", this.handleScroll);
+    }
 }
 
 customElements.define("navbar-template", Navbar)
