@@ -176,6 +176,8 @@ button {
     /* Easing Functions */
     --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
     --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 a:-webkit-any-link {
