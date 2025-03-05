@@ -1,0 +1,188 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Remove browser default css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:root {
+    /* Theme */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(0 0% 10%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(0 0% 15%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(0 95% 10%);
+    --primary: hsl(0 0% 0%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(0 10% 90%);
+    --secondary-foreground: hsl(0 0% 0%);
+    --muted: hsl(-38 10% 95%);
+    --muted-foreground: hsl(0 0% 40%);
+    --accent: hsl(-38 10% 90%);
+    --accent-foreground: hsl(0 0% 15%);
+    --destructive: hsl(0 50% 50%);
+    --destructive-foreground: hsl(0 0% 100%);
+    --border: hsl(0 20% 82%);
+    --input: hsl(0 0% 10%);
+    --ring: hsl(0 0% 0%);
+    --radius: hsl(0rem);
+    --edge: 1px solid var(--foreground);
+
+    /* Screen sizes */
+    --screen-sm: 40rem;
+    --screen-md: 48rem;
+    --screen-lg: 64rem;
+    --screen-xl: 80rem;
+    --screen-2xl: 96rem;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title-font {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+}
+
+.shadow {
+    box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.2);
+}

@@ -1,8 +1,78 @@
-@import url("../../assets/main.css");
+@import url("../../assets/css/main.css");
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+
     display: flex;
-    width: 100vw;
-    height: 4rem;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--background);
+    height: 3rem;
+
+    transition: box-shadow 100ms;
+    font-size: 2rem;
+
+    padding: 0 2rem;
+    
+    border-bottom: var(--edge);
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: var(--screen-lg);
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+}
+
+.navbar-container > p {
+    text-align: center;
+}
+
+.navbar-space {
+    height: 3rem;
+}
+
+.link-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.link-container > a {
+    color: var(--muted-foreground);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 100ms;
+    cursor: pointer;
+}
+
+.link-container > a:hover {
+    color: var(--foreground);
+    text-decoration: underline;
+}
+
+.nav-left {
+    justify-content: start;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: end;
+    align-items: center;
+}
+
+@media only screen and (max-width: 48rem) {
+    .link-container {
+        display: none;
+    }
+    .navbar-container {
+        grid-template-columns: 1fr;
+    }
 }

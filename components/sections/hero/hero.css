@@ -1,0 +1,78 @@
+@import url("../../../assets/css/main.css");
+
+.hero {
+    width: 100%;
+    padding-top: 10rem;
+    padding-bottom: 12rem;
+
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 1rem;
+}
+
+.hero-left {
+    position: relative;
+}
+
+.hero-right {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.hero-right > p {
+    transform: translateY(1rem);
+}
+
+.hero-title {
+    width: 100%;
+    font-size: 8rem;
+}
+
+.hero-title-end {
+    text-align: end;
+}
+
+.hero-img {
+    position: absolute;
+    z-index: -10;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: saturate(1.5);
+
+    left: -12rem;
+    top: -3rem;
+    width: 25rem;
+    height: 15rem;
+    background-image: url("../../../assets/image/lh-red.jpg");
+}
+
+.hero-left > .hero-img {
+    display: none;
+}
+
+@media only screen and (max-width: 48rem) {
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding-top: 4rem;
+    }
+    .hero-right > p {
+        transform: none;
+    }
+    .hero-right > .hero-img {
+        display: none;
+    }
+    .hero-left > .hero-img {
+        display: block;
+    }
+    .hero-img {
+        position: static;
+    }
+    .hero-right {
+        align-items: start;
+    }
+}
