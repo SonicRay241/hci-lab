@@ -296,6 +296,10 @@ body {
     background-color: var(--background);
 }
 
+.btn-outline:disabled:active {
+    background-color: var(--muted);
+}
+
 .icon-btn {
     height: 2.5rem;
     width: 2.5rem;

@@ -7,6 +7,7 @@ class CarouselCard extends HTMLElement {
             <div class="card">
                 <div>
                     <!-- image here -->
+                    <slot name="img"></slot>
                 </div>
                 <div class="card-details title-font">
                     <h3>

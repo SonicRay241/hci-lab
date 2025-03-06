@@ -1,4 +1,4 @@
-@import url("../../../assets/css/main.css");
+@import url("/assets/css/main.css");
 
 .carousel {
     padding-top: 8rem;
@@ -11,7 +11,7 @@
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .selector {
@@ -41,10 +41,10 @@
     transition: transform 750ms var(--ease-in-out-circ);
 }
 
-.slider>slot>* {
-    flex: 0 0 calc(100% / var(--items-per-screen) - 2rem);
+.slider>slot>*, .slider-children {
+    flex: 0 0 calc(100% / var(--items-per-screen) - 0.775rem);
     max-width: calc(100% / var(--items-per-screen));
-    margin-right: 2rem;
+    margin-right: 1rem;
     height: auto;
     aspect-ratio: 9 / 16;
 }
@@ -102,8 +102,10 @@
     }
 
     .slider>slot>* {
-        max-width: calc(60% / var(--items-per-screen));
-        margin-right: 20%;
-        margin-left: 20%;
+        aspect-ratio: 3 / 4;
+    }
+
+    .title {
+        font-size: 3rem;
     }
 }

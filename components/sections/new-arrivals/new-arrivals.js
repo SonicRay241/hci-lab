@@ -5,7 +5,7 @@ class NewArrivals extends HTMLElement {
         this.index = 0;
         this.wait = false;
         this.amount = 14
-        
+
         this.images = Array.apply(null, Array(this.amount)).map(() => {
             return `
                 <img src="../assets/image/ver2.jpeg">
@@ -16,11 +16,18 @@ class NewArrivals extends HTMLElement {
             <link rel="stylesheet" href="../components/sections/new-arrivals/new-arrivals.css">
             <carousel-container>
                 <span slot="title">NEW ARRIVALS</span>
+                <carousel-card slot="content" class="slider-children">
+                    <lazy-img slot="img" src="/assets/image/ver2.jpeg"></lazy-img>
+                    <span slot="title">
+                        SKRRRA
+                    </span>
+                    <span slot="price">
+                        $69
+                    </span>
+                </carousel-card>
             </carousel-container>
         `
 
-        console.log(template.content);
-        
         // Shadow DOM
         const shadow = this.attachShadow({ mode: "open" })
         shadow.append(template.content.cloneNode(true))
@@ -57,21 +64,9 @@ class NewArrivals extends HTMLElement {
     }
 
     connectedCallback() { // similar to componentDidMount()
-        // const nextBtn = this.shadowRoot.getElementById("btn-next")
-        // const prevBtn = this.shadowRoot.getElementById("btn-prev")
-
-        // nextBtn.addEventListener("click", this.handleNext.bind(this));
-        // prevBtn.addEventListener("click", this.handlePrev.bind(this));
-
-        // window.addEventListener("load", () => {
-        //     const slider = this.shadowRoot.getElementById("slider")
-        //     slider.innerHTML = this.images
-        // })
     }
 
     disconnectedCallback() { // similar to componentWillUnmount()
-        // nextBtn.removeEventListener("click", this.handleNext.bind(this));
-        // prevBtn.removeEventListener("click", this.handlePrev.bind(this));
     }
 }
 

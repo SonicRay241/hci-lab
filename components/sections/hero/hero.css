@@ -1,4 +1,4 @@
-@import url("../../../assets/css/main.css");
+@import url("/assets/css/main.css");
 
 .hero {
     width: 100%;
@@ -33,6 +33,7 @@
     position: absolute;
     z-index: -10;
 
+    background-image: url("/assets/image/lh-red.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,7 +43,6 @@
     top: -3rem;
     width: 25rem;
     height: 15rem;
-    background-image: url("../../../assets/image/lh-red.jpg");
 
     transform: translateX(-4rem);
     opacity: 0;
@@ -84,7 +84,7 @@
     }
 
     .hero-left {
-        background-image: url("../../../assets/image/lh-red.jpg");
+        background-image: url("/assets/image/lh-red.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
