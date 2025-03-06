@@ -3,72 +3,75 @@ class NewArrivals extends HTMLElement {
         super()
 
         this.index = 0;
+        this.wait = false;
+        this.amount = 14
+        
+        this.images = Array.apply(null, Array(this.amount)).map(() => {
+            return `
+                <img src="../assets/image/ver2.jpeg">
+            `
+        }).join("")
 
         const template = html`
             <link rel="stylesheet" href="../components/sections/new-arrivals/new-arrivals.css">
-            <section class="new-arrivals">
-                <div class="titlebar">
-                    <h2 class="title-font title">NEW ARRIVALS</h2>
-                    <div class="selector">
-                        <button class="btn btn-outline icon-btn left-chevron" id="btn-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
-                            <path d="m15 18-6-6 6-6"/>
-                        </svg>
-                        </button>
-                        <button class="btn btn-outline icon-btn right-chevron" id="btn-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
-                                <path d="m9 18 6-6-6-6"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="slider-container">
-                    <div class="slider" id="slider">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                        <img src="https://placehold.co/200x300/000000/FFFFFF/png">
-                    </div>
-                </div>
-            </section>
+            <carousel-container>
+                <span slot="title">NEW ARRIVALS</span>
+            </carousel-container>
         `
 
+        console.log(template.content);
+        
         // Shadow DOM
         const shadow = this.attachShadow({ mode: "open" })
         shadow.append(template.content.cloneNode(true))
     }
 
+    waitAnimation() {
+        this.wait = true
+
+        setTimeout(() => {
+            this.wait = false
+        }, 700)
+    }
+
     handleNext() {
+        if (this.wait) return
+        this.waitAnimation()
+
         const slider = this.shadowRoot.getElementById("slider")
         slider.style.setProperty("--slider-index", ++this.index)
+
+        const prevBtn = this.shadowRoot.getElementById("btn-prev")
+        prevBtn.disabled = this.index <= 0
     }
 
     handlePrev() {
+        if (this.wait) return
+        this.waitAnimation()
+
         const slider = this.shadowRoot.getElementById("slider")
         slider.style.setProperty("--slider-index", --this.index)
+
+        const prevBtn = this.shadowRoot.getElementById("btn-prev")
+        prevBtn.disabled = this.index <= 0
     }
 
     connectedCallback() { // similar to componentDidMount()
-        const nextBtn = this.shadowRoot.getElementById("btn-next")
-        const prevBtn = this.shadowRoot.getElementById("btn-prev")
+        // const nextBtn = this.shadowRoot.getElementById("btn-next")
+        // const prevBtn = this.shadowRoot.getElementById("btn-prev")
 
-        nextBtn.addEventListener("click", this.handleNext.bind(this));
-        prevBtn.addEventListener("click", this.handlePrev.bind(this));
+        // nextBtn.addEventListener("click", this.handleNext.bind(this));
+        // prevBtn.addEventListener("click", this.handlePrev.bind(this));
+
+        // window.addEventListener("load", () => {
+        //     const slider = this.shadowRoot.getElementById("slider")
+        //     slider.innerHTML = this.images
+        // })
     }
 
     disconnectedCallback() { // similar to componentWillUnmount()
-        nextBtn.removeEventListener("click", this.handleNext.bind(this));
-        prevBtn.removeEventListener("click", this.handlePrev.bind(this));
+        // nextBtn.removeEventListener("click", this.handleNext.bind(this));
+        // prevBtn.removeEventListener("click", this.handlePrev.bind(this));
     }
 }
 

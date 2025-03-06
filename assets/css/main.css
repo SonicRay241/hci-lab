@@ -155,6 +155,7 @@ button {
     --secondary: hsl(0 10% 90%);
     --secondary-foreground: hsl(0 0% 0%);
     --muted: hsl(-38 10% 95%);
+    --muted-darker: hsl(-38 0% 85%);
     --muted-foreground: hsl(0 0% 40%);
     --accent: hsl(-38 10% 90%);
     --accent-foreground: hsl(0 0% 15%);
@@ -236,7 +237,7 @@ body {
     }
 }
 
-#loading-overlay > div {
+#loading-overlay>div {
     /* Loader background */
     border: 0.5rem solid var(--accent);
 
@@ -282,18 +283,44 @@ body {
     color: var(--foreground);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:disabled {
     background-color: var(--muted);
 }
 
-/* .btn-outline:active {
-    background-color: var(--background);
-} */
+.btn-outline:disabled * {
+    opacity: 0.7;
+}
 
+.btn-outline:active {
+    background-color: var(--background);
+}
 
 .icon-btn {
     height: 2.5rem;
     width: 2.5rem;
 
     border-radius: 50%;
+}
+
+.skeleton {
+    background-color: #DDDBDD;
+    animation: skeleton 2s ease-in-out 1s infinite;
+}
+
+@keyframes skeleton {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Temporary */
+body {
+    padding-bottom: 20rem;
 }

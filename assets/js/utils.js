@@ -7,3 +7,8 @@ function html(htmlStr) {
 
     return template
 }
+
+const defaultObserverOptions = {
+    // rootMargin: "0px",
+    threshold: 0.2
+}

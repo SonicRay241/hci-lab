@@ -1,0 +1,109 @@
+@import url("../../../assets/css/main.css");
+
+.carousel {
+    padding-top: 8rem;
+}
+
+.titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.selector {
+    display: flex;
+    gap: 1rem;
+}
+
+.left-chevron > svg {
+    transform: translateX(-0.0625rem);
+}
+.right-chevron > svg {
+    transform: translateX(0.0625rem);
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    --items-per-screen: 4;
+    --slider-index: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-grow: 1;
+    transform: translateX(calc(var(--slider-index) * -100%));
+    transition: transform 750ms var(--ease-in-out-circ);
+}
+
+.slider>slot>* {
+    flex: 0 0 calc(100% / var(--items-per-screen) - 2rem);
+    max-width: calc(100% / var(--items-per-screen));
+    margin-right: 2rem;
+    height: auto;
+    aspect-ratio: 9 / 16;
+}
+
+.skeleton-title {
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-title2 {
+    width: 50%;
+    height: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+.skeleton-price-wrapper {
+    display: flex;
+    justify-content: end;
+}
+
+.skeleton-price {
+    width: 4rem;
+    height: 3rem;
+
+    border-radius: 0.75rem;
+}
+
+@media only screen and (max-width: 64rem) {
+    .slider {
+        --items-per-screen: 3
+    }
+}
+
+@media only screen and (max-width: 48rem) {
+    .carousel {
+        padding-top: 4rem;
+    }
+
+    .slider {
+        --items-per-screen: 2
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .carousel {
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+}
+@media only screen and (max-width: 32rem) {
+    .slider {
+        --items-per-screen: 1
+    }
+
+    .slider>slot>* {
+        max-width: calc(60% / var(--items-per-screen));
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}
