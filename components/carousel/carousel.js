@@ -64,7 +64,6 @@ class Carousel extends HTMLElement {
                                     <div class="skeleton skeleton-price"></div>
                                 </div>
                             </carousel-card>
-
                         </slot>
                     </div>
                 </div>
@@ -92,10 +91,12 @@ class Carousel extends HTMLElement {
         const sliderContent = this.shadowRoot.getElementById("slider-content")
 
         const displayAmount = window.getComputedStyle(slider).getPropertyValue("--items-per-screen")
-        const totalAmount = sliderContent.children.length
+        const totalAmount = sliderContent.assignedElements().length
 
         const nextBtn = this.shadowRoot.getElementById("btn-next")
-        // console.log(`${displayAmount} * ${this.index + 1} >= ${totalAmount}`);
+        console.log(`${displayAmount} * ${this.index + 1} >= ${totalAmount}`);
+        console.log(sliderContent.children);
+        
         
         nextBtn.disabled = (displayAmount * (this.index + 1)) >= totalAmount
     }
@@ -125,7 +126,7 @@ class Carousel extends HTMLElement {
         const sliderContent = this.shadowRoot.getElementById("slider-content")
         
         const displayAmount = window.getComputedStyle(slider).getPropertyValue("--items-per-screen")
-        const totalAmount = sliderContent.children.length
+        const totalAmount = sliderContent.assignedElements().length
         
         if ((displayAmount * (this.index)) >= totalAmount) {
             slider.style.setProperty("--slider-index", --this.index)

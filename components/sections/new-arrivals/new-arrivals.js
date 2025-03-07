@@ -19,11 +19,25 @@ class NewArrivals extends HTMLElement {
                 <carousel-card slot="content" class="slider-children">
                     <lazy-img slot="img" src="/assets/image/ver2.jpeg"></lazy-img>
                     <span slot="title">
-                        SKRRRA
+                        CASUAL BLACK SUIT
                     </span>
                     <span slot="price">
-                        $69
+                        <p>
+                            $69
+                        </p>
                     </span>
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
+                </carousel-card>
+                <carousel-card slot="content" class="slider-children">
                 </carousel-card>
             </carousel-container>
         `
