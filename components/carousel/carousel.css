@@ -19,10 +19,11 @@
     gap: 1rem;
 }
 
-.left-chevron > svg {
+.left-chevron>svg {
     transform: translateX(-0.0625rem);
 }
-.right-chevron > svg {
+
+.right-chevron>svg {
     transform: translateX(0.0625rem);
 }
 
@@ -41,7 +42,8 @@
     transition: transform 750ms var(--ease-in-out-circ);
 }
 
-.slider>slot>*, .slider-children {
+.slider>slot>*,
+.slider-children {
     flex: 0 0 calc(100% / var(--items-per-screen) - 1rem);
     max-width: calc(100% / var(--items-per-screen));
     margin-right: 1rem;
@@ -49,7 +51,7 @@
     aspect-ratio: 9 / 16;
 }
 
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 56rem) {
     .slider {
         --items-per-screen: 3
     }
@@ -60,29 +62,23 @@
         padding-top: 4rem;
     }
 
-    .slider {
-        --items-per-screen: 2
+
+    .slider>slot>*,
+    .slider-children {
+        flex: 0 0 calc(100% / var(--items-per-screen) - 0.5rem);
+        margin-right: 0.5rem;
+        aspect-ratio: 1 / 2;
     }
 }
 
 @media only screen and (max-width: 40rem) {
     .carousel {
-        padding: 2rem;
+        padding: 1rem;
         padding-bottom: 0;
     }
 }
+
 @media only screen and (max-width: 32rem) {
-    .slider {
-        --items-per-screen: 1
-    }
-
-    .slider>slot>*, .slider-children {
-        /* aspect-ratio: 3 / 4; */
-        flex: 0 0 calc(100% / var(--items-per-screen) - 15%);
-        max-width: calc(100% / var(--items-per-screen) - 30%);
-        margin: 0 15%;
-    }
-
     .title {
         font-size: 3rem;
     }

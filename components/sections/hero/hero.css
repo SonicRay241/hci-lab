@@ -63,7 +63,17 @@
     opacity: 0;
 }
 
+@media only screen and (max-width: 56rem) {
+    .hero-title {
+        font-size: 7rem;
+    }
+}
+
 @media only screen and (max-width: 48rem) {
+    .hero-title {
+        font-size: 9rem;
+    }
+
     .hero {
         display: flex;
         flex-direction: column;
@@ -120,16 +130,30 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 4rem;
+        padding-bottom: 0;
         
-        height: 20rem;
+        background: none;
+    }
+
+    .hero-right {
+        color: var(--background);
     }
 
     .hero {
         padding-top: 0;
+        gap: 0;
+
+        background-image: url("/assets/image/lh-red.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        filter: saturate(1.5);
     }
 
     .desc-container {
-        padding: 1rem 2rem;
+        padding: 2rem;
     }
 }
 

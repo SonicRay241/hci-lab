@@ -112,3 +112,23 @@
 
     border-radius: 0.75rem;
 }
+
+@media only screen and (max-width: 40rem) {
+    .card-details > h3 {
+        font-size: 1.75rem;
+    }
+    .card-details > p {
+        font-size: 2.25rem;
+    }
+}
+@media only screen and (max-width: 32rem) {
+    .card-details {
+        padding: 0.5rem;
+    }
+    .card-details > h3 {
+        font-size: 1.25rem;
+    }
+    .card-details > p {
+        font-size: 1.75rem;
+    }
+}
