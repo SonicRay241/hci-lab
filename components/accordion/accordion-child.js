@@ -75,6 +75,9 @@ class AccordionChild extends HTMLElement {
         this.toggler = this.shadowRoot.getElementById("accordion-toggle")
         this.toggler.addEventListener("click", this.handleToggle.bind(this))
 
+        /**
+         * @type {HTMLSlotElement}
+         */
         const body = this.shadowRoot.getElementById("body")
         body.assignedElements().forEach((el) => {
             el.style.paddingTop = "0.5rem"
