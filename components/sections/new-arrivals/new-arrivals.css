@@ -1,2 +1,8 @@
 @import url("/assets/css/main.css");
-@import url("/components/carousel/carousel.css")
+@import url("/components/carousel/carousel.css");
+
+.view-link-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}

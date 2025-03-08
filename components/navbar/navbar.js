@@ -2,6 +2,8 @@ class Navbar extends HTMLElement {
     constructor() {
         super()
 
+        this.open = false
+
         const template = html`
             <link rel="stylesheet" href="../components/navbar/navbar.css">
             <nav id="nav-container" class="navbar">
@@ -10,7 +12,9 @@ class Navbar extends HTMLElement {
                         <a>COLLECTIONS</a>
                         <a>ABOUT</a>
                     </div>
-                    <a href="/pages/home.html" class="title-font">Christian Wijaya</a>
+                    <div>
+                        <a href="/home.html" class="title-font">Christian Wijaya</a>
+                    </div>
                     <div class="link-container nav-right">
                         <a>EVENT</a>
                         <a>CART</a>
@@ -25,14 +29,20 @@ class Navbar extends HTMLElement {
         shadow.append(template.content.cloneNode(true))
     }
 
-    // handleScroll = () => {
-    //     const navElement = this.shadowRoot.getElementById("nav-container")
-    //     if (window.scrollY === 0) {
-    //         navElement.classList.remove("shadow"); // Example: Add a class when at top
-    //     } else {
-    //         navElement.classList.add("shadow");
-    //     }
-    // };
+    updateNavbar() {
+        if (this.open) {
+            const navbar = this.shadowRoot.getElementById("navbar")
+            
+
+            return
+        }
+    }
+
+    handleResize = () => {
+        if (window.innerWidth > 768) {
+            this.open = false
+        }
+    };
 
     connectedCallback() { // similar to componentDidMount()
         // window.addEventListener("scroll", this.handleScroll);

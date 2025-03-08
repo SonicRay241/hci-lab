@@ -6,28 +6,30 @@ class CarouselCard extends HTMLElement {
             <link rel="stylesheet" href="../components/carousel/carousel-card.css">
             <div class="card">
                 <div>
-                    <!-- image here -->
                     <slot name="img"></slot>
                 </div>
-                <div class="card-details title-font">
-                    <h3>
-                        <slot name="title">
-                            <div class="skeleton skeleton-title"></div>
-                            <div class="skeleton skeleton-title2"></div>
-                        </slot>
-                    </h3>
-                    <p>
-                        <slot name="price"></slot>
-                    </p>
-                </div>
-                <a href="/">
+                <div class="card-details">
                     <div>
-                        <span>View</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/>
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        </svg>
+                        <h3 class="title-font">
+                            <slot name="title">
+                                <div class="skeleton skeleton-title"></div>
+                                <div class="skeleton skeleton-title2"></div>
+                            </slot>
+                        </h3>
+                        <p>
+                            <slot name="price"></slot>
+                        </p>
                     </div>
-                </a>
+                    <div class="btn-container">
+                        <a class="btn" href="/">
+                            <span>View</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 7h10v10"/>
+                                <path d="M7 17 17 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         `
 

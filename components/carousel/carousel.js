@@ -94,9 +94,8 @@ class Carousel extends HTMLElement {
         const totalAmount = sliderContent.assignedElements().length
 
         const nextBtn = this.shadowRoot.getElementById("btn-next")
-        console.log(`${displayAmount} * ${this.index + 1} >= ${totalAmount}`);
-        console.log(sliderContent.children);
-        
+        // console.log(`${displayAmount} * ${this.index + 1} >= ${totalAmount}`);
+        // console.log(sliderContent.children);
         
         nextBtn.disabled = (displayAmount * (this.index + 1)) >= totalAmount
     }
