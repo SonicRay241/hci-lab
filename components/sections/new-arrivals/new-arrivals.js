@@ -60,36 +60,6 @@ class NewArrivals extends HTMLElement {
         shadow.append(template.content.cloneNode(true))
     }
 
-    waitAnimation() {
-        this.wait = true
-
-        setTimeout(() => {
-            this.wait = false
-        }, 700)
-    }
-
-    handleNext() {
-        if (this.wait) return
-        this.waitAnimation()
-
-        const slider = this.shadowRoot.getElementById("slider")
-        slider.style.setProperty("--slider-index", ++this.index)
-
-        const prevBtn = this.shadowRoot.getElementById("btn-prev")
-        prevBtn.disabled = this.index <= 0
-    }
-
-    handlePrev() {
-        if (this.wait) return
-        this.waitAnimation()
-
-        const slider = this.shadowRoot.getElementById("slider")
-        slider.style.setProperty("--slider-index", --this.index)
-
-        const prevBtn = this.shadowRoot.getElementById("btn-prev")
-        prevBtn.disabled = this.index <= 0
-    }
-
     connectedCallback() { // similar to componentDidMount()
     }
 

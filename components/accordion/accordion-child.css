@@ -1,0 +1,43 @@
+@import url("/assets/css/main.css");
+
+.title {
+    font-size: 2.5rem;
+    text-align: left;
+}
+
+.child {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-title {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-title>svg {
+    transition: transform 300ms var(--ease-out-circ);
+}
+
+.accordion-body {
+    max-height: 0;
+    padding: 0 1rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--foreground);
+    
+    transition: max-height 300ms var(--ease-in-circ);
+}
+
+.accordion-body>*>*{
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 40rem) {
+    .title {
+        font-size: 1.75rem;
+    }
+}

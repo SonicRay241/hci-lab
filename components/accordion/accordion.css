@@ -1,0 +1,6 @@
+@import url("/assets/css/main.css");
+
+.parent {
+    display: flex;
+    flex-direction: column;
+}

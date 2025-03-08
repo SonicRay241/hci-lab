@@ -101,6 +101,8 @@
 
         padding: 2rem;
         filter: saturate(1.5);
+
+        border: 1px solid var(--foreground);
     }
 
     .hero-left>.hero-title {
@@ -132,8 +134,9 @@
         justify-content: center;
         padding-top: 4rem;
         padding-bottom: 0;
-
+        
         background: none;
+        border: none;
     }
 
     .hero-right {
@@ -148,8 +151,9 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
         filter: saturate(1.5);
+
+        border-bottom: 1px solid var(--foreground);
     }
 
     .desc-container {

@@ -1,0 +1,33 @@
+@import url("/assets/css/main.css");
+
+.why-us {
+    margin-top: 5rem;
+}
+
+.why-us>h2 {
+    font-size: 4rem;
+}
+
+.why-us>p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.desc {
+    max-width: 48rem;
+}
+
+@media only screen and (max-width: 40rem) {
+    .why-us {
+        padding: 0 2rem;
+        margin-top: 3rem;
+    }
+    .why-us>p {
+        margin-bottom: 1.5rem;
+    }
+}
+@media only screen and (max-width: 32rem) {
+    .why-us>h2 {
+        font-size: 3rem;
+    }
+}

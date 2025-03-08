@@ -32,7 +32,7 @@ class Navbar extends HTMLElement {
     updateNavbar() {
         if (this.open) {
             const navbar = this.shadowRoot.getElementById("navbar")
-            
+            // TODO: Mobile Menu
 
             return
         }

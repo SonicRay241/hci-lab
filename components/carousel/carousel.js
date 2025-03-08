@@ -84,29 +84,19 @@ class Carousel extends HTMLElement {
     }
 
     updateButtonState() {
-        const prevBtn = this.shadowRoot.getElementById("btn-prev")
-        prevBtn.disabled = this.index <= 0
+        this.prevBtn.disabled = this.index <= 0
 
-        const slider = this.shadowRoot.getElementById("slider")
-        const sliderContent = this.shadowRoot.getElementById("slider-content")
+        const displayAmount = window.getComputedStyle(this.slider).getPropertyValue("--items-per-screen")
+        const totalAmount = this.sliderContent.assignedElements().length
 
-        const displayAmount = window.getComputedStyle(slider).getPropertyValue("--items-per-screen")
-        const totalAmount = sliderContent.assignedElements().length
-
-        const nextBtn = this.shadowRoot.getElementById("btn-next")
-        // console.log(`${displayAmount} * ${this.index + 1} >= ${totalAmount}`);
-        // console.log(sliderContent.children);
-        
-        nextBtn.disabled = (displayAmount * (this.index + 1)) >= totalAmount
+        this.nextBtn.disabled = (displayAmount * (this.index + 1)) >= totalAmount
     }
 
     handleNext() {
         if (this.wait) return
         this.waitAnimation()
         
-        const slider = this.shadowRoot.getElementById("slider")
-        slider.style.setProperty("--slider-index", ++this.index)
-        
+        this.slider.style.setProperty("--slider-index", ++this.index)
         this.updateButtonState()
     }
 
@@ -114,39 +104,37 @@ class Carousel extends HTMLElement {
         if (this.wait) return
         this.waitAnimation()
         
-        const slider = this.shadowRoot.getElementById("slider")
-        slider.style.setProperty("--slider-index", --this.index)
-        
+        this.slider.style.setProperty("--slider-index", --this.index)
         this.updateButtonState()
     }
 
     handleResize() {
-        const slider = this.shadowRoot.getElementById("slider")
-        const sliderContent = this.shadowRoot.getElementById("slider-content")
-        
-        const displayAmount = window.getComputedStyle(slider).getPropertyValue("--items-per-screen")
-        const totalAmount = sliderContent.assignedElements().length
+        const displayAmount = window.getComputedStyle(this.slider).getPropertyValue("--items-per-screen")
+        const totalAmount = this.sliderContent.assignedElements().length
         
         if ((displayAmount * (this.index)) >= totalAmount) {
-            slider.style.setProperty("--slider-index", --this.index)
+            this.slider.style.setProperty("--slider-index", --this.index)
         }
 
         this.updateButtonState()
     }
 
     connectedCallback() { // similar to componentDidMount()
-        const nextBtn = this.shadowRoot.getElementById("btn-next")
-        const prevBtn = this.shadowRoot.getElementById("btn-prev")
+        this.slider = this.shadowRoot.getElementById("slider")
+        this.sliderContent = this.shadowRoot.getElementById("slider-content")
+        this.nextBtn = this.shadowRoot.getElementById("btn-next")
+        this.prevBtn = this.shadowRoot.getElementById("btn-prev")
+
         
-        nextBtn.addEventListener("click", this.handleNext.bind(this));
-        prevBtn.addEventListener("click", this.handlePrev.bind(this));
+        this.nextBtn.addEventListener("click", this.handleNext.bind(this));
+        this.prevBtn.addEventListener("click", this.handlePrev.bind(this));
         window.addEventListener("resize", this.handleResize.bind(this))
         window.addEventListener("load", this.updateButtonState.bind(this))
     }
     
     disconnectedCallback() { // similar to componentWillUnmount()
-        nextBtn.removeEventListener("click", this.handleNext.bind(this));
-        prevBtn.removeEventListener("click", this.handlePrev.bind(this));
+        this.nextBtn.removeEventListener("click", this.handleNext.bind(this));
+        this.prevBtn.removeEventListener("click", this.handlePrev.bind(this));
         window.removeEventListener("resize", this.handleResize.bind(this))
     }
 }
