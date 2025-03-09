@@ -1,0 +1,44 @@
+@import url("/assets/css/main.css");
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#list>a{
+    font-size: 3rem;
+
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+}
+
+#list>a:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+@media only screen and (max-width: 40rem) {
+    .wrapper {
+        padding: 0 2rem;
+        grid-template-columns: 1fr;
+    }
+
+    .wrapper>.skeleton {
+        display: none;
+    }
+}

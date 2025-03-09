@@ -39,10 +39,10 @@
     background-repeat: no-repeat;
     filter: saturate(1.5);
 
-    left: -12rem;
-    top: -3rem;
-    width: 25rem;
-    height: 15rem;
+    left: -11.75rem;
+    top: -3.5rem;
+    width: 26rem;
+    height: 16rem;
 
     transform: translateX(-4rem);
     opacity: 0;
@@ -55,7 +55,7 @@
 .desc-container {
     overflow: hidden;
     padding: 1rem 0;
-    transform: translateY(12rem);
+    transform: translateY(12.25rem);
 }
 
 .desc {
