@@ -1,1 +1,90 @@
 @import url("/assets/css/main.css");
+
+.footer-wrapper {
+    background: var(--primary);
+    color: var(--primary-foreground);
+
+    padding: 2rem 0;
+    padding-bottom: 1rem;
+    margin-top: 6rem;
+}
+
+.footer-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.footer-urls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem 0;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+a>svg {
+    opacity: 0;
+    transition: opacity 250ms var(--ease-out-circ);
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:hover>svg {
+    opacity: 1;
+}
+
+.footer-policies {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+    margin-top: 4rem;
+}
+
+.footer-logo {
+    width: 100%;
+    aspect-ratio: 7 / 1;
+
+    margin-top: 2rem;
+    
+    background-image: url("/assets/image/city.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(2px) grayscale(1) brightness(2);
+
+    mask-image: url("/assets/image/logo.svg");
+    -webkit-mask-image: url("/assets/image/logo.svg");
+    mask-repeat: no-repeat;
+}
+
+
+@media only screen and (max-width: 48rem) {
+    .footer-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .footer-wrapper {
+        padding: 2rem;
+    }
+    .footer-urls {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 20rem) {
+    .footer-urls {
+        grid-template-columns: 1fr;
+    }
+}
+

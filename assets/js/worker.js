@@ -10,8 +10,25 @@ const URLS_TO_CACHE = [
     "/components/accordion/accordion-child.js",
     "/components/lazy-img/lazy-img.js",
     "/assets/js/main.js",
-    "/assets/js/utils.js"
+    "/assets/js/utils.js",
+    "/assets/css/main.css"
 ];
+
+const pageAccessedByReload = (
+    (window.performance.navigation && window.performance.navigation.type === 1) ||
+    window.performance
+        .getEntriesByType('navigation')
+        .map((nav) => nav.type)
+        .includes('reload')
+);
+
+if (pageAccessedByReload) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        for (const registration of registrations) {
+            registration.unregister();
+        }
+    });
+}
 
 self.addEventListener("install", (event) => {
     event.waitUntil(

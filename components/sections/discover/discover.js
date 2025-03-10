@@ -2,8 +2,6 @@ class Discover extends HTMLElement {
     constructor() {
         super()
 
-        this.open = false
-
         const template = html`
             <link rel="stylesheet" href="../components/sections/discover/discover.css">
             <div class="wrapper">

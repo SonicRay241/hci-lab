@@ -8,15 +8,12 @@
 
     <!-- Preloading for better navigation -->
     <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
-    <link rel="preload" href="/assets/js/main.js" as="script" />
-    <link rel="preload" href="/assets/js/utils.js" as="script" />
-    <link rel="preload" href="/components/navbar/navbar.js" as="script" />
-    <link rel="preload" href="/components/sections/hero/hero.js" as="script" />
+    <link rel="preload" href="/assets/css/main.js" as="style" />
     
     <!-- Main Imports -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/utils.js"></script>
+    <script defer src="/assets/js/main.js"></script>
+    <script defer src="/assets/js/utils.js"></script>
 
     <!-- Web component imports -->
     <script defer src="/components/navbar/navbar.js"></script>
@@ -26,11 +23,13 @@
     <script defer src="/components/accordion/accordion.js"></script>
     <script defer src="/components/accordion/accordion-child.js"></script>
     <script defer src="/components/lazy-img/lazy-img.js"></script>
-
+    
     <script defer src="/components/sections/hero/hero.js"></script>
     <script defer src="/components/sections/new-arrivals/new-arrivals.js"></script>
+    <script defer src="/components/sections/mini-about/mini-about.js"></script>
     <script defer src="/components/sections/discover/discover.js"></script>
     <script defer src="/components/sections/why-us/why-us.js"></script>
+    <script defer src="/components/sections/footer/footer.js"></script>
 </head>
 
 <body>
@@ -46,10 +45,11 @@
     <main-content>
         <hero-section></hero-section>
         <new-arrivals></new-arrivals>
+        <mini-about></mini-about>
         <discover-collections></discover-collections>
         <why-us></why-us>
-        <footer-template></footer-template>
     </main-content>
+    <footer-template></footer-template>
 </body>
 
 </html>

@@ -182,8 +182,13 @@ button {
     --ease-in-out-back: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-a:-webkit-any-link {
+/* a:-webkit-any-link {
     color: var(--foreground);
+    cursor: pointer;
+    text-decoration: none;
+} */
+a, a:hover, a:visited, a:active {
+    color: inherit;
     cursor: pointer;
     text-decoration: none;
 }
