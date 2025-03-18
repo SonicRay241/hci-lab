@@ -42,3 +42,12 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 20rem) {
+    .title {
+        font-size: 3rem;
+    }
+    #list>a{
+        font-size: 2rem;
+    }
+}

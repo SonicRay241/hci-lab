@@ -8,12 +8,12 @@ class NewArrivals extends HTMLElement {
 
         this.images = Array.apply(null, Array(this.amount)).map(() => {
             return `
-                <img src="../assets/image/ver2.jpeg">
+                <img src="/assets/image/ver2.jpeg">
             `
         }).join("")
 
         const template = html`
-            <link rel="stylesheet" href="../components/sections/new-arrivals/new-arrivals.css">
+            <link rel="stylesheet" href="/components/sections/new-arrivals/new-arrivals.css">
             <carousel-container>
                 <span slot="title">
                     NEW ARRIVALS

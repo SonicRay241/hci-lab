@@ -101,7 +101,7 @@
 
     .slider>slot>*,
     .slider-children {
-        aspect-ratio: 9 / 16;
+        aspect-ratio: 1 / 2;
     }
 }
 
@@ -118,5 +118,8 @@
 @media only screen and (max-width: 26.25rem) {
     .slider {
         --items-per-screen: 1
+    }
+    .slider-children {
+        aspect-ratio: 9 / 14;
     }
 }

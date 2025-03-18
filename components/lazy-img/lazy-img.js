@@ -5,7 +5,7 @@ class LazyImg extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/lazy-img/lazy-img.css">
+            <link rel="stylesheet" href="/components/lazy-img/lazy-img.css">
             <div class="image-container" id="img">
                 <!-- <img id="img"> -->
             </div>

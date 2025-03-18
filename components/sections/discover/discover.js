@@ -3,7 +3,7 @@ class Discover extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/sections/discover/discover.css">
+            <link rel="stylesheet" href="/components/sections/discover/discover.css">
             <div class="wrapper">
                 <div class="skeleton"></div>
                 <div class="title-font">

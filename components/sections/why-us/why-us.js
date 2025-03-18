@@ -3,7 +3,7 @@ class WhyUs extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/sections/why-us/why-us.css">
+            <link rel="stylesheet" href="/components/sections/why-us/why-us.css">
             <section class="why-us">
                 <h2 class="title-font title">
                     WHY CHOOSE US

@@ -3,10 +3,21 @@ class Navbar extends HTMLElement {
         super()
 
         this.open = false
+        this.wait = false
 
         const template = html`
-            <link rel="stylesheet" href="../components/navbar/navbar.css">
-            <nav id="nav-container" class="navbar">
+            <link rel="stylesheet" href="/components/navbar/navbar.css">
+            <div class="mobile-menu" id="mobile-nav">
+                <!-- <div class="mobile-content" id="mobile-content">
+                    <button class="btn btn-ghost icon-btn hamburger" id="menu-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+                </div> -->
+            </div>
+            <nav class="navbar" id="nav-container">
                 <div class="navbar-container">
                     <div class="link-container nav-left">
                         <a>COLLECTIONS</a>
@@ -19,6 +30,13 @@ class Navbar extends HTMLElement {
                         <a>EVENT</a>
                         <a>CART</a>
                     </div>
+                    <button class="btn btn-ghost icon-btn hamburger" id="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                            <line x1="4" x2="20" y1="6" y2="6" class="hamburger-top"/>
+                            <line x1="4" x2="20" y1="12" y2="12" class="hamburger-middle"/>
+                            <line x1="4" x2="20" y1="18" y2="18" class="hamburger-bottom"/>
+                        </svg>
+                    </button>
                 </div>
             </nav>
             <div class="navbar-space"></div>
@@ -31,25 +49,54 @@ class Navbar extends HTMLElement {
 
     updateNavbar() {
         if (this.open) {
-            const navbar = this.shadowRoot.getElementById("navbar")
-            // TODO: Mobile Menu
-
+            this.mobileMenu.style.transform = "scaleY(1)"
+            this.toggleMenuButton.classList.add("active")
             return
         }
+        this.mobileMenu.style.transform = "scaleY(0)"
+        this.toggleMenuButton.classList.remove("active")
     }
 
-    handleResize = () => {
-        if (window.innerWidth > 768) {
+    waitAnimation() {
+        this.wait = true
+        setTimeout(() => {
+            this.wait = false
+        }, 500)
+    }
+
+    handleResize() {
+        if (window.innerWidth > 704) {
             this.open = false
         }
+
+        this.updateNavbar()
     };
 
-    connectedCallback() { // similar to componentDidMount()
-        // window.addEventListener("scroll", this.handleScroll);
+    handleToggle() {
+        if (this.wait) {
+            return
+        }
+        this.waitAnimation()
+        this.open = !this.open
+        this.updateNavbar()
     }
 
+    connectedCallback() { // similar to componentDidMount()
+        this.mobileMenu = this.shadowRoot.getElementById("mobile-nav")
+        this.toggleMenuButton = this.shadowRoot.getElementById("menu-toggle")
+        this.container = this.shadowRoot.getElementById("nav-container")
+
+        setTimeout(() => {
+            this.mobileMenu.style.transition = "transform 500ms var(--ease-out-circ)"
+        }, 50)
+
+        window.addEventListener("resize", this.handleResize.bind(this));
+        this.toggleMenuButton.addEventListener("click", this.handleToggle.bind(this))
+    }
+    
     disconnectedCallback() { // similar to componentWillUnmount()
-        // window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("resize", this.handleResize.bind(this));
+        this.toggleMenuButton.removeEventListener("click", this.handleToggle.bind(this))
     }
 }
 

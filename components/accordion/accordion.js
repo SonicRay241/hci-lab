@@ -3,7 +3,7 @@ class Accordion extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/accordion/accordion.css">
+            <link rel="stylesheet" href="/components/accordion/accordion.css">
             <div class="parent" id="parent">
                 <p id="debug"></p>
                 <slot>

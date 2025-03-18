@@ -3,7 +3,7 @@ class Hero extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/sections/hero/hero.css">
+            <link rel="stylesheet" href="/components/sections/hero/hero.css">
             <section class="hero">
                 <div class="hero-left">
                     <h1 class="title-font hero-title hide" id="title1">HERITAGE</h1>

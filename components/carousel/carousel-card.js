@@ -3,7 +3,7 @@ class CarouselCard extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/carousel/carousel-card.css">
+            <link rel="stylesheet" href="/components/carousel/carousel-card.css">
             <div class="card">
                 <div>
                     <slot name="img"></slot>

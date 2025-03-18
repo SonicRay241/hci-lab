@@ -5,7 +5,7 @@ class AccordionChild extends HTMLElement {
         this.open = false
 
         const template = html`
-            <link rel="stylesheet" href="../components/accordion/accordion-child.css">
+            <link rel="stylesheet" href="/components/accordion/accordion-child.css">
             <div class="child">
                 <button class="accordion-title btn btn-ghost" id="accordion-toggle">
                     <h3 class="title-font title">

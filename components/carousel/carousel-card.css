@@ -126,3 +126,9 @@
         font-size: 1rem;
     }
 }
+
+@media only screen and (max-width: 26.25rem) {
+    .card {
+        grid-template-rows: 7fr 3fr;
+    }
+}

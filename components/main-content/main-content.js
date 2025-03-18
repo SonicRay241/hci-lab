@@ -3,7 +3,7 @@ class MainContent extends HTMLElement {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="../components/main-content/main-content.css">
+            <link rel="stylesheet" href="/components/main-content/main-content.css">
             <main class="center-content">
                 <div class="content">
                     <slot></slot>

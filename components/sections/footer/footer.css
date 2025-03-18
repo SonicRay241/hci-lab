@@ -20,23 +20,37 @@
     gap: 0.5rem 0;
 }
 
-a {
+.footer-contacts {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: var(--primary-foreground);
+
+    gap: 1rem;
+}
+
+.footer-urls>a,
+.footer-policies>a {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    font-size: 0.875rem;
 }
 
-a>svg {
+.footer-urls>a>svg,
+.footer-policies>a>svg {
     opacity: 0;
     transition: opacity 250ms var(--ease-out-circ);
 }
 
-a:hover {
+.footer-urls>a:hover,
+.footer-policies>a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-a:hover>svg {
+.footer-urls>a:hover>svg,
+.footer-policies>a:hover>svg {
     opacity: 1;
 }
 
@@ -45,7 +59,7 @@ a:hover>svg {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
-    
+
     margin-top: 4rem;
 }
 
@@ -53,8 +67,8 @@ a:hover>svg {
     width: 100%;
     aspect-ratio: 7 / 1;
 
-    margin-top: 2rem;
-    
+    margin-top: 1rem;
+
     background-image: url("/assets/image/city.jpg");
     background-position: center;
     background-size: cover;
@@ -70,13 +84,19 @@ a:hover>svg {
 @media only screen and (max-width: 48rem) {
     .footer-body {
         grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-contacts {
+        justify-content: start;
     }
 }
 
 @media only screen and (max-width: 40rem) {
-    .footer-wrapper {
-        padding: 2rem;
+    .footer-body, .footer-policies {
+        padding: 0 2rem;
     }
+
     .footer-urls {
         grid-template-columns: 1fr 1fr;
     }
@@ -87,4 +107,3 @@ a:hover>svg {
         grid-template-columns: 1fr;
     }
 }
-

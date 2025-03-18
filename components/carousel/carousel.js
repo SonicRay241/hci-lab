@@ -6,7 +6,7 @@ class Carousel extends HTMLElement {
         this.wait = false;
 
         const template = html`
-            <link rel="stylesheet" href="../components/carousel/carousel.css">
+            <link rel="stylesheet" href="/components/carousel/carousel.css">
             <section class="carousel" id="carousel-parent">
                 <div class="titlebar">
                     <h2 class="title-font title" id="title-wrapper">
