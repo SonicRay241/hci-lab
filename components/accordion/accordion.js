@@ -5,7 +5,6 @@ class Accordion extends HTMLElement {
         const template = html`
             <link rel="stylesheet" href="/components/accordion/accordion.css">
             <div class="parent" id="parent">
-                <p id="debug"></p>
                 <slot>
                     <accordion-child>
                     </accordion-child>
@@ -19,7 +18,7 @@ class Accordion extends HTMLElement {
     }
 
     onDataOpenIndexChange() {
-        const slot = this.accordionParent.childNodes[3]
+        const slot = this.accordionParent.childNodes[1]
         /**
          * @type {AccordionChild[]}
          */

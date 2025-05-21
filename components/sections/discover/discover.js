@@ -47,6 +47,10 @@ class Discover extends HTMLElement {
         shadow.append(template.content.cloneNode(true))
     }
 
+    static get cssPath() {
+        return "/components/sections/discover/discover.css"
+    }
+
     connectedCallback() { // similar to componentDidMount()
         // window.addEventListener("scroll", this.handleScroll);
     }

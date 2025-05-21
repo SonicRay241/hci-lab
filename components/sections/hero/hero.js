@@ -1,7 +1,7 @@
 class Hero extends HTMLElement {
     constructor() {
         super()
-
+        
         const template = html`
             <link rel="stylesheet" href="/components/sections/hero/hero.css">
             <section class="hero">
@@ -32,7 +32,6 @@ class Hero extends HTMLElement {
 
         setTimeout(() => {
             title1.classList.add("fade-in")
-            
         }, 200)
 
         setTimeout(() => {
@@ -45,9 +44,13 @@ class Hero extends HTMLElement {
         }, 800)
     }
 
+    static get cssPath() {
+        return "/components/sections/hero/hero.css"
+    }
+
     connectedCallback() {
         window.addEventListener("load", this.animate.bind(this));
-
+        window.addEventListener("spa:load", this.animate.bind(this))
     }
 
     disconnectedCallback() { // similar to componentWillUnmount()

@@ -6,3 +6,14 @@
     display: flex;
     justify-content: end;
 }
+
+.new-arrivals {
+    width: 100%;
+    padding-top: 8rem;
+}
+
+@media only screen and (max-width: 48rem) {
+    .new-arrivals {
+        padding-top: 0rem;
+    }
+}

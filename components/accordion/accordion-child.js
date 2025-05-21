@@ -55,7 +55,7 @@ class AccordionChild extends HTMLElement {
          */
         const wrapper = this.parentNode
         const parent = wrapper.shadowRoot.getElementById("parent")
-        const slot = parent.childNodes[3]
+        const slot = parent.childNodes[1]
         
         /**
          * @type {HTMLElement[]}

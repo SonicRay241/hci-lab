@@ -5,7 +5,7 @@ class MainContent extends HTMLElement {
         const template = html`
             <link rel="stylesheet" href="/components/main-content/main-content.css">
             <main class="center-content">
-                <div class="content">
+                <div class="content" id="wrapper">
                     <slot></slot>
                 </div>
             </main>

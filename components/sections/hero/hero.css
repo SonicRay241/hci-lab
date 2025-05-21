@@ -2,7 +2,7 @@
 
 .hero {
     width: 100%;
-    padding-top: 10rem;
+    padding-top: 7.5rem;
 
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -72,6 +72,7 @@
 @media only screen and (max-width: 48rem) {
     .hero-title {
         font-size: 9rem;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.31);
     }
 
     .hero {

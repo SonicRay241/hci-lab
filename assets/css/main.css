@@ -1,6 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* Import fonts */
+@import url(/assets/css/font.css);
 
 /* Remove browser default css */
 html,
@@ -142,6 +141,19 @@ button {
     border: none;
 }
 
+input[type="text"] {
+    width: 100%; 
+    box-sizing: border-box;
+    font-family: "Raleway";
+    border-radius: 0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+button {
+    font-family: "Raleway";
+}
+
 :root {
     /* Theme */
     --background: hsl(0 0% 100%);
@@ -229,8 +241,10 @@ p {
     background-color: var(--background);
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
 
 @keyframes spin {
@@ -333,6 +347,10 @@ p {
     border-radius: 50%;
 }
 
+.loader {
+    margin-top: 1rem;
+}
+
 .skeleton {
     background-color: #DDDBDD;
     animation: skeleton 2s ease-in-out 1s infinite;
@@ -347,5 +365,25 @@ p {
     }
     100% {
         opacity: 1;
+    }
+}
+
+main-content {
+    display: block;
+}
+
+#content {
+    min-height: calc(100dvh - 3.5rem);
+}
+
+@media only screen and (max-width: 48rem) {
+    .home-padding {
+        padding: 0rem 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 40rem) {
+    .home-padding {
+        padding: 0rem;
     }
 }

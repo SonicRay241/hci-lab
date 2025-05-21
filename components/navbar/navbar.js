@@ -8,26 +8,23 @@ class Navbar extends HTMLElement {
         const template = html`
             <link rel="stylesheet" href="/components/navbar/navbar.css">
             <div class="mobile-menu" id="mobile-nav">
-                <!-- <div class="mobile-content" id="mobile-content">
-                    <button class="btn btn-ghost icon-btn hamburger" id="menu-close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-                            <path d="M18 6 6 18"/>
-                            <path d="m6 6 12 12"/>
-                        </svg>
-                    </button>
-                </div> -->
+                <a onclick="routerNavigate(event)" href="/home.html">HOME</a>
+                <a onclick="routerNavigate(event)" href="/shop.html">COLLECTIONS</a>
+                <a onclick="routerNavigate(event)" href="/about.html">ABOUT</a>
+                <a onclick="routerNavigate(event)" href="/event.html">EVENT</a>
+                <a>CART</a>
             </div>
             <nav class="navbar" id="nav-container">
                 <div class="navbar-container">
                     <div class="link-container nav-left">
-                        <a>COLLECTIONS</a>
-                        <a>ABOUT</a>
+                        <a onclick="routerNavigate(event)" href="/shop.html">COLLECTIONS</a>
+                        <a onclick="routerNavigate(event)" href="/about.html">ABOUT</a>
                     </div>
                     <div>
-                        <a href="/home.html" class="title-font">Christian Wijaya</a>
+                        <a onclick="routerNavigate(event)" href="/home.html" class="title-font">Christian Wijaya</a>
                     </div>
                     <div class="link-container nav-right">
-                        <a>EVENT</a>
+                        <a onclick="routerNavigate(event)" href="/event.html">EVENT</a>
                         <a>CART</a>
                     </div>
                     <button class="btn btn-ghost icon-btn hamburger" id="menu-toggle">
@@ -49,12 +46,14 @@ class Navbar extends HTMLElement {
 
     updateNavbar() {
         if (this.open) {
-            this.mobileMenu.style.transform = "scaleY(1)"
             this.toggleMenuButton.classList.add("active")
+            this.mobileMenu.classList.add("active")
+            this.mobileMenu.style.transitionDelay = "0ms"
             return
         }
-        this.mobileMenu.style.transform = "scaleY(0)"
         this.toggleMenuButton.classList.remove("active")
+        this.mobileMenu.classList.remove("active")
+        this.mobileMenu.style.transitionDelay = "250ms"
     }
 
     waitAnimation() {
@@ -87,7 +86,7 @@ class Navbar extends HTMLElement {
         this.container = this.shadowRoot.getElementById("nav-container")
 
         setTimeout(() => {
-            this.mobileMenu.style.transition = "transform 500ms var(--ease-out-circ)"
+            this.mobileMenu.style.transition = "transform 350ms var(--ease-out-circ)"
         }, 50)
 
         window.addEventListener("resize", this.handleResize.bind(this));

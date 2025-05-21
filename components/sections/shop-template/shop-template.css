@@ -1,0 +1,7 @@
+@import url("/assets/css/main.css");
+
+.shop-container {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+}

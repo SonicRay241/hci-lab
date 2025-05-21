@@ -5,7 +5,7 @@ class CarouselCard extends HTMLElement {
         const template = html`
             <link rel="stylesheet" href="/components/carousel/carousel-card.css">
             <div class="card">
-                <div>
+                <div class="card-img">
                     <slot name="img"></slot>
                 </div>
                 <div class="card-details">
@@ -36,6 +36,10 @@ class CarouselCard extends HTMLElement {
         // Shadow DOM
         const shadow = this.attachShadow({ mode: "open" })
         shadow.append(template.content.cloneNode(true))
+    }
+
+    static get cssPath() {
+        return "/components/carousel/carousel-card.css"
     }
 
     connectedCallback() { // similar to componentDidMount()

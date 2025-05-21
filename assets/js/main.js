@@ -1,13 +1,24 @@
 function closeLoadingOverlay() {
     const loadingOverlay = document.getElementById("loading-overlay")
-
     loadingOverlay.classList.add("overlay-close")
 }
 
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/assets/js/worker.js')
-        .then(() => console.log('Service Worker registered!'))
-        .catch(err => console.error('Service Worker failed:', err));
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const loadingOverlay = document.getElementById("loading-overlay")
+    const spinner = document.createElement("div")
+    loadingOverlay.appendChild(spinner)
+})
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader")
+    loader.style.display = "none"
+
+    window.addEventListener("spa:loading", () => {
+        loader.style.display = "block"
+    })
+    window.addEventListener("spa:load", () => {
+        loader.style.display = "none"
+    })
+})
 
 window.addEventListener("load", closeLoadingOverlay)

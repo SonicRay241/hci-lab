@@ -90,13 +90,13 @@
     .footer-contacts {
         justify-content: start;
     }
-}
 
-@media only screen and (max-width: 40rem) {
     .footer-body, .footer-policies {
         padding: 0 2rem;
     }
+}
 
+@media only screen and (max-width: 40rem) {
     .footer-urls {
         grid-template-columns: 1fr 1fr;
     }

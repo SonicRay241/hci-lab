@@ -12,7 +12,6 @@ const URLS_TO_CACHE = [
     "/assets/js/main.js",
     "/assets/js/utils.js",
     "/assets/css/main.css",
-    "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap",
 ];
 
 const pageAccessedByReload = (

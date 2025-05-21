@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Wijaya - Collections</title>
+
+    <!-- Preloading for better navigation -->
+    <link rel="preload" href="/assets/css/font.css" as="style" />
+    <link rel="preload" href="/assets/css/main.css" as="style" />
+    
+    <!-- Main Imports -->
+    <link rel="stylesheet" href="/assets/css/font.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/utils.js"></script>
+
+    <!-- Web component imports -->
+    <script defer src="/components/navbar/navbar.js"></script>
+    <script defer src="/components/main-content/main-content.js"></script>
+    <script defer src="/components/lazy-img/lazy-img.js"></script>
+
+    <script defer src="/components/sections/footer/footer.js"></script>
+</head>
+
+<body>
+    <div id="loading-overlay">
+        <noscript>
+            <p>You must enable javascript to view this page.</p>
+        </noscript>
+    </div>
+    
+    <navbar-template id="navbar"></navbar-template>
+    <main-content id="content">
+        <p>Product</p>
+    </main-content>
+    <footer-template></footer-template>
+</body>
+
+</html>

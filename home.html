@@ -7,13 +7,14 @@
     <title>Christian Wijaya</title>
 
     <!-- Preloading for better navigation -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
     <link rel="preload" href="/assets/css/main.css" as="style" />
     
     <!-- Main Imports -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <script defer src="/assets/js/main.js"></script>
-    <script defer src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/store.js"></script>
+    <script src="/assets/js/utils.js"></script>
 
     <!-- Web component imports -->
     <script defer src="/components/navbar/navbar.js"></script>
@@ -33,21 +34,21 @@
 </head>
 
 <body>
-    <noscript>
-        You must enable javascript to view this page.
-    </noscript>
-
     <div id="loading-overlay">
-        <div class=""></div>
+        <noscript>
+            <p>You must enable javascript to view this page.</p>
+        </noscript>
     </div>
 
-    <navbar-template></navbar-template>
-    <main-content>
-        <hero-section></hero-section>
-        <new-arrivals></new-arrivals>
-        <mini-about></mini-about>
-        <discover-collections></discover-collections>
-        <why-us></why-us>
+    <navbar-template id="navbar"></navbar-template>
+    <main-content id="content">
+        <div class="home-padding">
+            <hero-section></hero-section>
+            <new-arrivals></new-arrivals>
+            <mini-about></mini-about>
+            <discover-collections></discover-collections>
+            <why-us></why-us>
+        </div>
     </main-content>
     <footer-template></footer-template>
 </body>

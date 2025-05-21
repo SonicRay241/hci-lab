@@ -32,6 +32,10 @@ class WhyUs extends HTMLElement {
         const shadow = this.attachShadow({ mode: "open" })
         shadow.append(template.content.cloneNode(true))
     }
+
+    static get cssPath() {
+        return "/components/sections/why-us/why-us.css"
+    }
 }
 
 customElements.define("why-us", WhyUs)

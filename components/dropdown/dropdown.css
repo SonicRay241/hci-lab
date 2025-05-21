@@ -1,0 +1,40 @@
+@import url("/assets/css/main.css");
+
+button {
+    color: var(--foreground);
+}
+
+.dropdown-parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.dropdown-parent:hover {
+    cursor: pointer;
+}
+
+.dropdown-parent:active {
+    background: var(--muted);
+}
+
+.dropdown-icon {
+    transition: transform 300ms var(--ease-in-out-circ);
+}
+
+.dropdown-wrapper.open .dropdown-icon {
+    transform: rotate(90deg);
+}
+
+.dropdown-children {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 300ms var(--ease-out-circ);
+}
+
+.dropdown-wrapper.open .dropdown-children {
+    max-height: 1000px;
+    transition: max-height 300ms var(--ease-in-circ);
+}

@@ -8,10 +8,10 @@
 
 .content {
     width: 100%;
-    max-width: var(--screen-lg);
+    max-width: var(--screen-xl);
 }
 
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 48rem) {
     .center-content {
         padding: 0;
     }

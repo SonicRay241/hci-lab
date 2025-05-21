@@ -29,40 +29,12 @@ class Carousel extends HTMLElement {
                     <div class="slider" id="slider">
                         <slot name="content" id="slider-content">
                             <carousel-card>
-                                <div slot="title" class="">
-                                    <div class="skeleton skeleton-title"></div>
-                                    <div class="skeleton skeleton-title2"></div>
-                                </div>
-                                <div slot="price" class="skeleton-price-wrapper">
-                                    <div class="skeleton skeleton-price"></div>
-                                </div>
                             </carousel-card>
                             <carousel-card>
-                                <div slot="title" class="">
-                                    <div class="skeleton skeleton-title"></div>
-                                    <div class="skeleton skeleton-title2"></div>
-                                </div>
-                                <div slot="price" class="skeleton-price-wrapper">
-                                    <div class="skeleton skeleton-price"></div>
-                                </div>
                             </carousel-card>
                             <carousel-card>
-                                <div slot="title" class="">
-                                    <div class="skeleton skeleton-title"></div>
-                                    <div class="skeleton skeleton-title2"></div>
-                                </div>
-                                <div slot="price" class="skeleton-price-wrapper">
-                                    <div class="skeleton skeleton-price"></div>
-                                </div>
                             </carousel-card>
                             <carousel-card>
-                                <div slot="title" class="">
-                                    <div class="skeleton skeleton-title"></div>
-                                    <div class="skeleton skeleton-title2"></div>
-                                </div>
-                                <div slot="price" class="skeleton-price-wrapper">
-                                    <div class="skeleton skeleton-price"></div>
-                                </div>
                             </carousel-card>
                         </slot>
                     </div>
@@ -73,6 +45,14 @@ class Carousel extends HTMLElement {
         // Shadow DOM
         const shadow = this.attachShadow({ mode: "open" })
         shadow.append(template.content.cloneNode(true))
+    }
+
+    static get cssPath() {
+        return "/components/carousel/carousel.css"
+    }
+
+    static get deps() {
+        return ["carousel-card"]
     }
 
     waitAnimation() {
@@ -125,11 +105,11 @@ class Carousel extends HTMLElement {
         this.nextBtn = this.shadowRoot.getElementById("btn-next")
         this.prevBtn = this.shadowRoot.getElementById("btn-prev")
 
-        
         this.nextBtn.addEventListener("click", this.handleNext.bind(this));
         this.prevBtn.addEventListener("click", this.handlePrev.bind(this));
         window.addEventListener("resize", this.handleResize.bind(this))
         window.addEventListener("load", this.updateButtonState.bind(this))
+        window.addEventListener("spa:load", this.updateButtonState.bind(this))
     }
     
     disconnectedCallback() { // similar to componentWillUnmount()

@@ -1,0 +1,51 @@
+@import url("/assets/css/main.css");
+
+.shop-aside {
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    max-width: 12rem;
+    height: 56rem;
+    overflow-x: hidden;
+    border-right: 1px solid var(--secondary);
+}
+
+.shop-aside > hr {
+    border: 0.5px solid var(--secondary);
+}
+
+.aside-title {
+    /* font-size: 1.125rem; */
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.aside-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.aside-option {
+    font-size: 0.85rem;
+    text-align: start;
+    background: var(--background);
+    color: var(--foreground);
+    border-radius: 0.25rem;
+    padding: 0.325rem 0.5rem;
+}
+
+.aside-option:hover {
+    background: var(--muted);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 48rem) {
+    .shop-aside {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        padding-left: 0.5rem;
+    }
+}
