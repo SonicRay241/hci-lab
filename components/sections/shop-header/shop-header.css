@@ -3,9 +3,10 @@
 .shop-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 2rem;
     /* border-bottom: 1px solid var(--foreground); */
+    border-bottom: 1px solid var(--foreground);
 }
 
 .title {
@@ -14,4 +15,23 @@
 
 search-bar {
     flex: 1;
+}
+
+
+.aside-button {
+    display: none;
+    background: var(--background);
+    transition: background 100ms;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+}
+
+.aside-button:hover {
+    background: var(--muted);
+}
+
+@media only screen and (max-width: 48rem) {
+    .aside-button {
+        display: block;
+    }
 }

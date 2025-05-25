@@ -39,16 +39,12 @@ function getProducts(page = 1) {
  */
 function getNewArrivals(take = 10) {
     return new Promise((resolve, reject) => {
-        console.log("Triggered getProducts");
-
         fetch("/assets/dummy/products.json")
             .then(response => {
                 if (!response.ok) {
-                    console.log("Not ok");
                     // throw new Error("HTTP error " + response.status);
                     reject("HTTP error " + response.status)
                 }
-                console.log("Ok?");
                 const res = response.json()
                 res.then((v) => {
                     // Simulate delay in db select

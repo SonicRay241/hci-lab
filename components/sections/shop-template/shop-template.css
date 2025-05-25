@@ -3,5 +3,39 @@
 .shop-container {
     display: flex;
     position: relative;
-    gap: 1rem;
+    min-height: calc(100dvh - 3.5rem - 3.25rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.shop-content {
+    width: 100%;
+    padding: 0.5rem;
+    padding-bottom: 0;
+    background: var(--background);
+    transition: filter 350ms;
+}
+
+.shop-content.sidebar {
+    filter: brightness(0.7);
+    pointer-events: fill;
+}
+
+.aside-button {
+    display: none;
+    background: var(--background);
+    transition: background 100ms;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+}
+
+.aside-button:hover {
+    background: var(--muted);
+}
+
+@media only screen and (max-width: 48rem) {
+    .aside-button {
+        display: block;
+    }
 }

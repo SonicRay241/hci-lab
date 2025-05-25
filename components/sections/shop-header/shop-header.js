@@ -7,6 +7,7 @@ class ShopHeader extends HTMLElement {
             <section class="shop-header">
                 <!-- <h1 class="title title-font">COLLECTIONS</h1> -->
                 <search-bar id="search-bar" data-placeholder="Search collections..."></search-bar>
+                <button class="aside-button btn btn-outline" id="aside-button">REFINE</button>
             </section>
         `
 
@@ -25,8 +26,14 @@ class ShopHeader extends HTMLElement {
 
     connectedCallback() {
         this.searchBar = this.shadowRoot.getElementById("search-bar")
+        this.asideBtn = this.shadowRoot.getElementById("aside-button")
 
         this.searchBar.onchange = v => this.onchange(v) // Idk why just using this.onchange doesn't work
+        this.asideBtn.addEventListener("click", this.onclick.bind(this))
+    }
+
+    disconnectedCallback() {
+        this.asideBtn.removeEventListener("click", this.onclick.bind(this))
     }
 }
 

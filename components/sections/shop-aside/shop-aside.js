@@ -2,10 +2,25 @@ class ShopAside extends HTMLElement {
     constructor() {
         super()
 
+        this.open = false
+        this.wait = false
+
+        /**
+         * @type {((state: boolean) => void)[]}
+         */
+        this.toggleList = []
+
         const template = html`
             <link rel="stylesheet" href="/components/sections/shop-aside/shop-aside.css">
-            <aside class="shop-aside">
-                <!-- <h1 class="">COLLECTIONS</h1> -->
+            <aside class="shop-aside" id="shop-aside">
+                <div class="close-container">
+                    <button class="btn btn-ghost btn-icon" id="close-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+                </div>
                 <drop-down>
                     <span class="aside-title" slot="title">Sort By</span>
                     <div class="aside-options" slot="body">
@@ -58,8 +73,58 @@ class ShopAside extends HTMLElement {
         return "/components/sections/shop-aside/shop-aside.css"
     }
 
-    connectedCallback() {
+    waitAnimation() {
+        this.wait = true
 
+        setTimeout(() => {
+            this.wait = false
+        }, 350)
+    }
+    
+    /**
+     * 
+     * @param {(state: boolean) => void} fn 
+     */
+    onToggle(fn) {
+        this.toggleList.push(fn)
+    }
+
+    toggle() {
+        if (this.wait) return
+        this.waitAnimation()
+
+        if (this.open) {
+            this.aside.classList.remove("open")
+        }
+        else {
+            this.aside.classList.add("open")
+        }
+        
+        this.open = !this.open
+
+        this.toggleList.forEach((fn) => {
+            fn(this.open)
+        })
+    }
+
+    onResize() {
+        if (window.innerWidth >= 768) {
+            this.aside.classList.remove("open")
+            this.open = false
+        }
+    }
+
+    connectedCallback() {
+        this.aside = this.shadowRoot.getElementById("shop-aside")
+        this.closeBtn = this.shadowRoot.getElementById("close-btn")
+        
+        window.addEventListener("resize", this.onResize.bind(this))
+        this.closeBtn.addEventListener("click", this.toggle.bind(this))
+    }
+    
+    disconnectedCallback() {
+        window.removeEventListener("resize", this.onResize.bind(this))
+        this.closeBtn.removeEventListener("click", this.toggle.bind(this))
     }
 }
 

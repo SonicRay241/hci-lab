@@ -3,11 +3,13 @@
 .shop-aside {
     padding-top: 0.5rem;
     padding-right: 0.5rem;
-    width: 100%;
-    max-width: 12rem;
-    height: 56rem;
+    width: 12rem;
+    height: 100%;
+    box-sizing: border-box;
     overflow-x: hidden;
     border-right: 1px solid var(--secondary);
+    transition: transform 350ms var(--ease-in-out-circ);
+    background: var(--background);
 }
 
 .shop-aside > hr {
@@ -40,6 +42,17 @@
     cursor: pointer;
 }
 
+.close-container {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0rem 0rem;
+    transition: 
+        max-height 0ms,
+        padding 0ms;
+
+    transition-delay: 0ms;
+}
+
 @media only screen and (max-width: 48rem) {
     .shop-aside {
         position: absolute;
@@ -47,5 +60,16 @@
         left: 0;
         z-index: 10;
         padding-left: 0.5rem;
+        transform: translateX(-100%);
+    }
+
+    .shop-aside.open {
+        transform: translateX(0%);
+    }
+
+    .close-container {
+        max-height: 1000px;
+        padding: 0.5rem 0rem;
+        transition-delay: 350ms;
     }
 }
