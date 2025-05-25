@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 window.addEventListener("load", () => {
-    const loader = document.getElementById("loader")
-    loader.style.display = "none"
-
     window.addEventListener("spa:loading", () => {
         loader.style.display = "block"
     })

@@ -5,7 +5,6 @@
     align-items: center;
     /* justify-content: space-between; */
     gap: 2rem;
-    /* border-bottom: 1px solid var(--foreground); */
     border-bottom: 1px solid var(--foreground);
 }
 
@@ -16,7 +15,6 @@
 search-bar {
     flex: 1;
 }
-
 
 .aside-button {
     display: none;
@@ -31,6 +29,10 @@ search-bar {
 }
 
 @media only screen and (max-width: 48rem) {
+    .shop-header {
+        padding-right: 1rem;
+    }
+
     .aside-button {
         display: block;
     }

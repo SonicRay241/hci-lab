@@ -2,13 +2,14 @@ const pageCache = {}
 
 /**
  * 
- * @param {MouseEvent} event 
+ * @param {MouseEvent | null} event 
  */
-async function routerNavigate(event) {
-    event.preventDefault()
+async function routerNavigate(event = null) {
+    if (event) event.preventDefault()
 
-    const url = event.target.href
-    const layoutTarget = event.target.dataset.layout || "content"
+    const url = event?.composedPath()[0].href || window.location.pathname
+
+    const layoutTarget = event?.target.dataset.layout || "content"
 
     const navbar = document.getElementById("navbar")
     if (navbar.open) {
@@ -17,7 +18,8 @@ async function routerNavigate(event) {
 
     if (window.location.href == url) return
 
-    history.pushState({}, "", url)
+    if (event) history.pushState({}, "", url + window.location.search)
+    else history.replaceState({}, "", url + window.location.search)
 
     document.getElementById(layoutTarget).innerHTML = null
 
@@ -140,3 +142,7 @@ function collectCssPaths(tag, seen = new Set()) {
 
     return paths;
 }
+
+window.addEventListener('popstate', function (event) {
+    routerNavigate()
+});

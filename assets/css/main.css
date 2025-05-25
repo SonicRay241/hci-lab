@@ -307,7 +307,7 @@ p {
 }
 
 .btn:active {
-    background-color: var(--accent-foreground);
+    background-color: var(--muted);
 }
 
 .btn-outline {
@@ -356,8 +356,12 @@ p {
 }
 
 .skeleton {
-    background-color: #DDDBDD;
+    background-color: var(--muted);
     animation: skeleton 2s ease-in-out 1s infinite;
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes skeleton {

@@ -33,11 +33,12 @@ class SearchBar extends HTMLElement {
         clearTimeout(this.debounceTimeout)
 
         this.debounceTimeout = setTimeout(() => {
-            if (this.value.trim() !== '') {
-                // Fetch
-                this.onchange(this.value)
-            }
+            this.onchange(this.value)
         }, 500)
+    }
+
+    change(value = "") {
+        this.input.value = value
     }
 
     getValue() {

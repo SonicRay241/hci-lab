@@ -4,26 +4,51 @@
 
 /**
  * @param {number} page Page Number
- * @returns {Promise<Product[]>} The latest items of the shop
+ * @param {string} name Name query, returns includes
+ * @returns {Promise<Product[]>}
  */
-function getProducts(page = 1) {
+function getProducts(page = 1, name = "") {
     return new Promise((resolve, reject) => {
         fetch("/assets/dummy/products.json")
             .then(response => {
                 if (!response.ok) {
-                    // throw new Error("HTTP error " + response.status);
                     reject("HTTP error " + response.status)
                 }
                 
                 const res = response.json()
                 res.then((v) => {
-                    // console.log(v);
-                    // Simulate delay in db select
                     setTimeout(() => {
-                        const start = (page - 1) * 10
-                        const end = page * 10 + 1
+                        const data = v.filter(obj => obj["name"].toLowerCase().includes(name.toLowerCase()))
+                        
+                        const start = (page - 1) * 12
+                        const end = page * 12
 
-                        resolve(v.slice(start, end))
+                        resolve(data.slice(start, end))
+                    }, 300)
+                })
+            })
+            .catch(function () {
+                reject("Fetch Error")
+            })
+    })
+}
+
+/**
+ * @param {string} id Product id
+ * @returns {Promise<Product | null>} Product Data
+ */
+function getProduct(id = "") {
+    return new Promise((resolve, reject) => {
+        fetch("/assets/dummy/products.json")
+            .then(response => {
+                if (!response.ok) {
+                    reject("HTTP error " + response.status)
+                }
+                
+                const res = response.json()
+                res.then((v) => {
+                    setTimeout(() => {
+                       resolve(v => v["id"] == id || null)
                     }, 300)
                 })
             })

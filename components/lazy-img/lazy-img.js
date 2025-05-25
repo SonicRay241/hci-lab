@@ -25,6 +25,7 @@ class LazyImg extends HTMLElement {
         }
 
         image.src = this.src
+        image.alt = this.alt
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

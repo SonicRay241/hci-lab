@@ -3,15 +3,11 @@
 .shop-container {
     display: flex;
     position: relative;
-    min-height: calc(100dvh - 3.5rem - 3.25rem);
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 100%;
+    height: calc(100dvh - 3.5rem - 3.25rem);
 }
 
 .shop-content {
     width: 100%;
-    padding: 0.5rem;
     padding-bottom: 0;
     background: var(--background);
     transition: filter 350ms;
@@ -19,7 +15,36 @@
 
 .shop-content.sidebar {
     filter: brightness(0.7);
-    pointer-events: fill;
+}
+
+.shop-content.sidebar > * {
+    pointer-events: none;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.shop-scroll {
+    padding-right: 1rem;
+    overflow-x: visible;
+    overflow-y: auto;
+    width: calc(100% - 1rem);
+    height: 100%;
+
+    scrollbar-width: none;
+}
+
+.shop-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.load-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0rem;
+    column-span: 3;
 }
 
 .aside-button {
@@ -37,5 +62,11 @@
 @media only screen and (max-width: 48rem) {
     .aside-button {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .shop-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }

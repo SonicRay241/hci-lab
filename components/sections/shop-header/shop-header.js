@@ -2,6 +2,8 @@ class ShopHeader extends HTMLElement {
     constructor() {
         super()
 
+        this.toggle = () => {}
+
         const template = html`
             <link rel="stylesheet" href="/components/sections/shop-header/shop-header.css">
             <section class="shop-header">
@@ -29,11 +31,11 @@ class ShopHeader extends HTMLElement {
         this.asideBtn = this.shadowRoot.getElementById("aside-button")
 
         this.searchBar.onchange = v => this.onchange(v) // Idk why just using this.onchange doesn't work
-        this.asideBtn.addEventListener("click", this.onclick.bind(this))
+        this.asideBtn.addEventListener("click", () => this.toggle())
     }
 
     disconnectedCallback() {
-        this.asideBtn.removeEventListener("click", this.onclick.bind(this))
+        this.asideBtn.removeEventListener("click", () => this.toggle())
     }
 }
 
