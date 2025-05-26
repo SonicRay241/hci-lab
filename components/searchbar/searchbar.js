@@ -48,8 +48,14 @@ class SearchBar extends HTMLElement {
     connectedCallback() {
         this.input = this.shadowRoot.getElementById("searchinput")
 
-        this.input.addEventListener("keyup", this.onChange.bind(this))
+        this.boundChange = this.onChange.bind(this)
+
+        this.input.addEventListener("keyup", this.boundChange)
         this.input.placeholder = this.dataset.placeholder
+    }
+
+    disconnectedCallback() {
+        this.input.removeEventListener("keyup", this.boundChange)
     }
 }
 

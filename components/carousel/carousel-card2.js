@@ -1,9 +1,9 @@
-class ShopCard extends HTMLElement {
+class CarouselCard2 extends HTMLElement {
     constructor() {
         super()
 
         const template = html`
-            <link rel="stylesheet" href="/components/shop-card/shop-card.css">
+            <link rel="stylesheet" href="/components/carousel/carousel-card2.css">
             <div class="card slider-children">
                 <a class="container" id="card">
                     <div class="img">
@@ -21,7 +21,7 @@ class ShopCard extends HTMLElement {
     }
 
     static get cssPath() {
-        return "/components/shop-card/shop-card.css"
+        return "/components/carousel/carousel-card2.css"
     }
 
     connectedCallback() {
@@ -63,4 +63,4 @@ class ShopCard extends HTMLElement {
     }
 }
 
-customElements.define("shop-card", ShopCard)
+customElements.define("carousel-card", CarouselCard2)

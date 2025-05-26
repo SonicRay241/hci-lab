@@ -59,11 +59,13 @@ class Dropdown extends HTMLElement {
         this.trigger = this.shadowRoot.getElementById("dropdown-trigger")
         this.wrapper = this.shadowRoot.getElementById("dropdown-wrapper")
 
-        this.trigger.addEventListener("click", this.handleToggle.bind(this))
+        this.boundToggle = this.handleToggle.bind(this)
+
+        this.trigger.addEventListener("click", this.boundToggle)
     }
 
     disconnectedCallback() {
-        this.trigger.removeEventListener("click", this.handleToggle.bind(this))
+        this.trigger.removeEventListener("click", this.boundToggle)
     }
 }
 

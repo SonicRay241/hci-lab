@@ -89,13 +89,16 @@ class Navbar extends HTMLElement {
             this.mobileMenu.style.transition = "transform 350ms var(--ease-out-circ)"
         }, 50)
 
-        window.addEventListener("resize", this.handleResize.bind(this));
-        this.toggleMenuButton.addEventListener("click", this.handleToggle.bind(this))
+        this.boundResize = this.handleResize.bind(this)
+        this.boundToggle = this.handleToggle.bind(this)
+
+        window.addEventListener("resize", this.boundResize);
+        this.toggleMenuButton.addEventListener("click", this.boundToggle)
     }
     
     disconnectedCallback() { // similar to componentWillUnmount()
-        window.removeEventListener("resize", this.handleResize.bind(this));
-        this.toggleMenuButton.removeEventListener("click", this.handleToggle.bind(this))
+        window.removeEventListener("resize", this.boundResize);
+        this.toggleMenuButton.removeEventListener("click", this.boundToggle)
     }
 }
 

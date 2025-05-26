@@ -4,13 +4,6 @@ class NewArrivals extends HTMLElement {
 
         this.index = 0;
         this.wait = false;
-        this.amount = 14
-
-        this.images = Array.apply(null, Array(this.amount)).map(() => {
-            return `
-                <img src="/assets/image/ver2.jpeg">
-            `
-        }).join("")
 
         const template = html`
             <link rel="stylesheet" href="/components/sections/new-arrivals/new-arrivals.css">
@@ -21,7 +14,7 @@ class NewArrivals extends HTMLElement {
                     </span>
                 </carousel-container>
                 <div class="view-link-container">
-                    <a onclick="routerNavigate(event)" href="/shop.html?filter=latest" class="btn btn-ghost">
+                    <a href="/shop.html" class="btn btn-outline" id="shop-btn">
                         <span>
                             See more
                         </span>
@@ -49,45 +42,29 @@ class NewArrivals extends HTMLElement {
 
         newArrivals.then((products) => {
             products.forEach((product) => {
-                const card = document.createElement("carousel-card");
-                card.setAttribute("slot", "content");
-                card.classList.add("slider-children");
-    
-                const img = document.createElement("lazy-img");
-                img.setAttribute("slot", "img");
-                img.setAttribute("src", "/assets/image/ver2.jpeg"); // Placeholder image
-                img.loadImage()
-    
-                const title = document.createElement("span");
-                title.setAttribute("slot", "title");
-                title.textContent = product.name;
-    
-                const price = document.createElement("span");
-                price.setAttribute("slot", "price");
-                const priceText = document.createElement("p");
-                priceText.textContent = "$" + product.price;
-                price.appendChild(priceText);
-    
-                // Append all to <carousel-card>
-                card.appendChild(img);
-                card.appendChild(title);
-                card.appendChild(price);
-    
-                // Finally, append <carousel-card> to <carousel-parent>
+                const card = document.createElement("carousel-card")
+                card.setAttribute("slot", "content")
+                card.setAttribute("data-title", product.name)
+                card.setAttribute("data-price", "$" + product.price)
+                card.setAttribute("data-img", product.img)
+                card.setAttribute("data-id", product.id)
+
                 parent.appendChild(card);
             })
             parent.updateButtonState()
         })
     }
 
-    connectedCallback() { // similar to componentDidMount()
-        // Fetch data and append it
-        // window.addEventListener("load", this.loadImages.bind(this))
-        // window.addEventListener("spa:load", this.loadImages.bind(this))
+    connectedCallback() {
+        this.shopBtn = this.shadowRoot.getElementById("shop-btn")
+        this.boundRouter = routerNavigate.bind(this.shopBtn)
         this.loadImages()
+
+        this.shopBtn.addEventListener("click", (event) => this.boundRouter(event))
     }
 
-    disconnectedCallback() { // similar to componentWillUnmount()
+    disconnectedCallback() {
+        this.shopBtn.removeEventListener("click", (event) => this.boundRouter(event))
     }
 }
 

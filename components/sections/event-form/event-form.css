@@ -1,0 +1,51 @@
+@import url("/assets/css/main.css");
+
+.header {
+    font-size: 3rem;
+    margin-top: 3rem;
+}
+
+label {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.event-form {
+    padding-bottom: 2rem;
+}
+
+.event-form>form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    font-size: 1rem;
+    border: 1px solid var(--muted-darker);
+    padding: 0.5rem 1rem;
+    outline: none;
+    max-width: 32rem;
+}
+
+.form-error {
+    color: var(--destructive);
+}
+
+.btn {
+    width: fit-content;
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 48rem) {
+    .event-form {
+        padding: 0rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 22rem) {
+    .event-form {
+        padding: 0rem 1rem;
+        padding-bottom: 2rem;
+    }
+}

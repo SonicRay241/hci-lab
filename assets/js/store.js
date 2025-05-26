@@ -1,5 +1,5 @@
 /**
- * @typedef {{ id: string, name: string, price: number, img: string, description: string}} Product
+ * @typedef {{ id: string, name: string, price: number, img: string, description: string, colors: string[]}} Product
  */
 
 /**
@@ -48,7 +48,7 @@ function getProduct(id = "") {
                 const res = response.json()
                 res.then((v) => {
                     setTimeout(() => {
-                       resolve(v => v["id"] == id || null)
+                        resolve(v.find(prod => prod["id"] === id))
                     }, 300)
                 })
             })

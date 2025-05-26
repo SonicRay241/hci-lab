@@ -1,0 +1,60 @@
+@import url("/assets/css/main.css");
+
+.event-template {
+    height: fit-content;
+}
+
+.hero-bg {
+    width: 100%;
+    object-fit: cover;
+    object-position: 15%;
+    height: 28rem;
+    filter: brightness(0.7);
+}
+
+.title {
+    font-size: 4rem;
+    margin: 1rem 0rem;
+}
+
+.info {
+    font-weight: 500;
+    font-size: 1.125rem;
+    margin: 0.5rem 0rem;
+}
+
+.paragraph {
+    margin: 1rem 0rem;
+}
+
+@media only screen and (max-width: 56rem) {
+    .hero-bg {
+        height: 24rem;
+    }
+}
+
+@media only screen and (max-width: 48rem) {
+    .hero-bg {
+        height: 20rem;
+    }
+
+    .texts {
+        padding: 0rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 32rem) {
+    .hero-bg {
+        height: 16rem;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 22rem) {
+    .texts {
+        padding: 0rem 1rem;
+    }
+}

@@ -141,7 +141,10 @@ button {
     border: none;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+select
+{
     width: 100%; 
     box-sizing: border-box;
     font-family: "Raleway";
@@ -358,10 +361,19 @@ p {
 .skeleton {
     background-color: var(--muted);
     animation: skeleton 2s ease-in-out 1s infinite;
+    color: transparent;
+}
+
+* {
+    scroll-behavior: smooth;
 }
 
 .hidden {
     display: none;
+}
+
+strong {
+    font-weight: 600;
 }
 
 @keyframes skeleton {

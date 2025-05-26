@@ -117,14 +117,17 @@ class ShopAside extends HTMLElement {
     connectedCallback() {
         this.aside = this.shadowRoot.getElementById("shop-aside")
         this.closeBtn = this.shadowRoot.getElementById("close-btn")
+
+        this.boundResize = this.onResize.bind(this)
+        this.boundToggle = this.toggle.bind(this)
         
-        window.addEventListener("resize", this.onResize.bind(this))
-        this.closeBtn.addEventListener("click", this.toggle.bind(this))
+        window.addEventListener("resize", this.boundResize)
+        this.closeBtn.addEventListener("click", this.boundToggle)
     }
     
     disconnectedCallback() {
-        window.removeEventListener("resize", this.onResize.bind(this))
-        this.closeBtn.removeEventListener("click", this.toggle.bind(this))
+        window.removeEventListener("resize", this.boundResize)
+        this.closeBtn.removeEventListener("click", this.boundToggle)
     }
 }
 

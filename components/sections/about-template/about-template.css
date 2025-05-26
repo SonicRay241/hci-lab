@@ -1,0 +1,96 @@
+@import url("/assets/css/main.css");
+
+.about-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100dvh - 3.5rem);
+    min-height: fit-content;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.text {
+    padding: 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.title {
+    font-size: 4rem;
+    margin-top: 2rem;
+}
+
+.paragraph {
+    margin-top: 1rem;
+    /* max-width: 56rem; */
+}
+
+.shop-now {
+    margin: 2rem 0rem;
+    width: fit-content;
+}
+
+.shop-now > span {
+    color: var(--background);
+}
+
+.shop-now:hover > span {
+    color: var(--primary);
+    transition: stroke 150ms, color 150ms;
+}
+
+.shop-now > svg {
+    stroke: var(--primary-foreground);
+}
+
+.shop-now:hover > svg {
+    stroke: var(--foreground);
+}
+
+@media only screen and (max-width: 56rem) {
+    .about-container {
+        position: relative;
+    }
+
+    .about-grid {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .img {
+        min-height: 32rem;
+    }
+
+    .details {
+        display: block;
+        padding: 2rem 2rem;
+        height: fit-content;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .img {
+        min-height: 28rem;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .img {
+        min-height: 24rem;
+    }
+}
+
+@media only screen and (max-width: 28rem) {
+    .img {
+        height: 20rem;
+    }
+}

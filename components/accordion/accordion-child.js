@@ -73,7 +73,9 @@ class AccordionChild extends HTMLElement {
 
     connectedCallback() { // similar to componentDidMount()
         this.toggler = this.shadowRoot.getElementById("accordion-toggle")
-        this.toggler.addEventListener("click", this.handleToggle.bind(this))
+        this.boundToggle = this.handleToggle.bind(this)
+
+        this.toggler.addEventListener("click", this.boundToggle)
 
         /**
          * @type {HTMLSlotElement}
@@ -86,7 +88,7 @@ class AccordionChild extends HTMLElement {
     }
 
     disconnectedCallback() { // similar to componentWillUnmount()
-        this.toggler.removeEventListener("click", this.handleToggle.bind(this))
+        this.toggler.removeEventListener("click", this.boundToggle)
     }
 }
 

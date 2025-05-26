@@ -7,7 +7,11 @@ const pageCache = {}
 async function routerNavigate(event = null) {
     if (event) event.preventDefault()
 
-    const url = event?.composedPath()[0].href || window.location.pathname
+    window.scrollTo(0,0)
+
+    const href = event?.composedPath()[0].href
+    const url = href || window.location.href
+    const pathname = new URL(url).pathname
 
     const layoutTarget = event?.target.dataset.layout || "content"
 
@@ -16,14 +20,17 @@ async function routerNavigate(event = null) {
         navbar.handleToggle()
     }
 
-    if (window.location.href == url) return
+    console.log(url);
+    
 
-    if (event) history.pushState({}, "", url + window.location.search)
-    else history.replaceState({}, "", url + window.location.search)
+    if (event && window.location.href == url) return
+
+    if (event) history.pushState({}, "", url)
+    else history.replaceState({}, "", url)
 
     document.getElementById(layoutTarget).innerHTML = null
 
-    const cachedPage = pageCache[url]
+    const cachedPage = pageCache[pathname]
 
     if (cachedPage) {
         const layout = document.getElementById(layoutTarget)
@@ -100,14 +107,14 @@ async function routerNavigate(event = null) {
             const layout = document.getElementById(layoutTarget)
             // layout.style.opacity = "0"
             layout.innerHTML = doc.getElementById(layoutTarget).innerHTML
-            pageCache[url] = doc.getElementById(layoutTarget).innerHTML
+            pageCache[pathname] = doc.getElementById(layoutTarget).innerHTML
             window.dispatchEvent(new Event("spa:load"));
         })
     })
 }
 
 window.addEventListener("load", () => {
-    pageCache[window.location.href] = document.getElementById("content").innerHTML
+    pageCache[window.location.pathname] = document.getElementById("content").innerHTML
 })
 
 function collectCssPaths(tag, seen = new Set()) {

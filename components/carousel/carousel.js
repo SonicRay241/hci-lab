@@ -105,17 +105,22 @@ class Carousel extends HTMLElement {
         this.nextBtn = this.shadowRoot.getElementById("btn-next")
         this.prevBtn = this.shadowRoot.getElementById("btn-prev")
 
-        this.nextBtn.addEventListener("click", this.handleNext.bind(this));
-        this.prevBtn.addEventListener("click", this.handlePrev.bind(this));
-        window.addEventListener("resize", this.handleResize.bind(this))
-        window.addEventListener("load", this.updateButtonState.bind(this))
-        window.addEventListener("spa:load", this.updateButtonState.bind(this))
+        this.boundNext = this.handleNext.bind(this)
+        this.boundPrev = this.handlePrev.bind(this)
+        this.boundResize = this.handleResize.bind(this)
+        this.boundState = this.updateButtonState.bind(this)
+
+        this.nextBtn.addEventListener("click", this.boundNext)
+        this.prevBtn.addEventListener("click", this.boundPrev)
+        window.addEventListener("resize", this.boundResize)
+        window.addEventListener("load", this.boundState)
+        window.addEventListener("spa:load", this.boundState)
     }
     
     disconnectedCallback() { // similar to componentWillUnmount()
-        this.nextBtn.removeEventListener("click", this.handleNext.bind(this));
-        this.prevBtn.removeEventListener("click", this.handlePrev.bind(this));
-        window.removeEventListener("resize", this.handleResize.bind(this))
+        this.nextBtn.removeEventListener("click", this.boundNext)
+        this.prevBtn.removeEventListener("click", this.boundPrev)
+        window.removeEventListener("resize", this.boundResize)
     }
 }
 

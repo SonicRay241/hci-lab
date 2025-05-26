@@ -9,13 +9,4 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingOverlay.appendChild(spinner)
 })
 
-window.addEventListener("load", () => {
-    window.addEventListener("spa:loading", () => {
-        loader.style.display = "block"
-    })
-    window.addEventListener("spa:load", () => {
-        loader.style.display = "none"
-    })
-})
-
 window.addEventListener("load", closeLoadingOverlay)

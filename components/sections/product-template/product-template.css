@@ -1,1 +1,151 @@
 @import url("/assets/css/main.css");
+
+.product-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100dvh - 3.5rem);
+    min-height: fit-content;
+}
+
+.product-container.not-found {
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container.not-found>h1 {
+    font-size: 8rem;
+}
+
+.product-container.not-found>p {
+    font-size: 1.25rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    /* max-height: 56rem; */
+    /* background-color: black; */
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem 6rem;
+    height: 100%;
+}
+
+#product-name {
+    font-size: 2rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+#product-price {
+    margin-top: 0.25rem;
+    font-size: 1.125rem;
+    width: fit-content;
+}
+
+#product-desc {
+    margin-top: 1rem;
+}
+
+.button-flex {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.quantity-label {
+    margin-top: 1rem;
+    color: var(--muted-foreground);
+    opacity: 0.9;
+}
+
+.quantity {
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: stretch;
+}
+
+.quantity-display {
+    border: 1px solid var(--foreground);
+    border-left: none;
+    border-right: none;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-text {
+    font-size: 2rem;
+    font-weight: 300;
+    padding: 0rem 0.75rem;
+}
+
+.primary,
+.primary:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    transition: opacity 150ms;
+}
+
+.primary:hover {
+    opacity: 0.8;
+}
+
+@media only screen and (max-width: 80rem) {
+    .details {
+        padding: 2rem 4rem;
+    }
+}
+
+@media only screen and (max-width: 48rem) {
+    .product-container {
+        position: initial;
+    }
+
+    .product-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img {
+        min-height: 32rem;
+    }
+
+    .text {
+        display: block;
+        padding: 2rem 2rem;
+        height: fit-content;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .img {
+        min-height: 28rem;
+    }
+}
+
+@media only screen and (max-width: 35rem) {
+    .img {
+        min-height: 24rem;
+    }
+}
+
+@media only screen and (max-width: 28rem) {
+    .img {
+        height: 20rem;
+    }
+}

@@ -130,8 +130,11 @@ class ShopTemplate extends HTMLElement {
         this.fetchData(1, search)
         this.shopHeader.shadowRoot.getElementById("search-bar").change(search)
 
-        window.addEventListener("resize", this.onResize.bind(this))
-        this.loadButton.addEventListener("click", this.loadMore.bind(this))
+        this.boundResize = this.onResize.bind(this)
+        this.boundLoad = this.loadMore.bind(this)
+
+        window.addEventListener("resize", this.boundResize)
+        this.loadButton.addEventListener("click", this.boundLoad)
     }
 
     disconnectedCallback() {
@@ -141,8 +144,8 @@ class ShopTemplate extends HTMLElement {
             }
         })
 
-        window.removeEventListener("resize", this.onResize.bind(this))
-        this.loadButton.removeEventListener("click", this.loadMore.bind(this))
+        window.removeEventListener("resize", this.boundResize)
+        this.loadButton.removeEventListener("click", this.boundLoad)
     }
 }
 
